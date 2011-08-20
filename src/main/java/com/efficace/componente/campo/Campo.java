@@ -6,12 +6,10 @@ package com.efficace.componente.campo;
 
 import com.efficace.componente.campo.util.FabricaFormatoDados;
 import com.efficace.componente.campo.util.FormatoDados;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import com.efficace.componente.campo.util.TratamentoFoco;
+import com.efficace.componente.campo.util.TratamentoMouse;
+import com.efficace.componente.campo.util.TratamentoTecla;
+
 import javax.swing.JTextField;
 import javax.swing.text.BadLocationException;
 
@@ -21,7 +19,12 @@ import javax.swing.text.BadLocationException;
  * @version 0.1-SNAPTSHOT 21/04/2011
  */
 public class Campo extends JTextField{
-    private String mascara;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 3908628583363836754L;
+	
+	private String mascara;
     private Integer quantidadeDigitos = 0;
     private Boolean padraoBancario = true;
     private FabricaFormatoDados fabrica = new FabricaFormatoDados();
@@ -34,8 +37,8 @@ public class Campo extends JTextField{
         alinhaDireita();
         posicionaCursor();
         addKeyListener(new TratamentoTecla());
-        addFocusListener(new TratamentoFoco());
-        addMouseListener(new TratamentoMouse());
+        addFocusListener(new TratamentoFoco(this));
+        addMouseListener(new TratamentoMouse(this));
     }
 
     /**
@@ -116,82 +119,7 @@ public class Campo extends JTextField{
     private void posicionaCursor(){
         setCaretPosition(getText().length());
     }
-    
-    /**
-     * Posiciona o cursor para o final do campo ao pressionar
-     * as teclas: Home, seta direita, seta esquerda
-     *
-     * Simula o pressionamento da tecla backspace ao pressionar
-     * a tecla delete
-     *
-     */
-    private class TratamentoTecla implements KeyListener{
-        @Override
-        public void keyTyped(KeyEvent e) {
-        }
 
-        @Override
-        public void keyPressed(KeyEvent e) {
-            if (e.getKeyCode() == 36 || e.getKeyCode() == 37 || e.getKeyCode() == 39){
-                e.setKeyCode(35);
-            } else if (e.getKeyCode() == 127){
-                e.setKeyCode(8);
-            } else if (e.getKeyCode() == 13){
-                //
-            }
-        }
-
-        @Override
-        public void keyReleased(KeyEvent e) {
-        }
-    }
-
-    /**
-     * Posiciona o cursor no final do campo
-     * a qualquer ação do mouse no campo
-     */
-    private class TratamentoMouse implements MouseListener{
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            setCaretPosition(getText().length());
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-            setCaretPosition(getText().length());
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-            setCaretPosition(getText().length());
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-            setCaretPosition(getText().length());
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-            setCaretPosition(getText().length());
-        }
-    }
-
-    /**
-     * Posiciona o cursor no final do campo
-     * ao ganhar o foco
-     */
-    private class TratamentoFoco implements FocusListener{
-        @Override
-        public void focusGained(FocusEvent e) {
-            setCaretPosition(getText().length());
-        }
-
-        @Override
-        public void focusLost(FocusEvent e) {
-        }
-    }
-    
     /**
      * Retorna o valor como número duplo
      * @return Duplo -  Valor do campo

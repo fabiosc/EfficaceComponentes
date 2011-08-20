@@ -15,7 +15,12 @@ import javax.swing.text.BadLocationException;
  * @version 0.1-SNAPTSHOT 21/04/2011
  */
 public class FormatoQuantidade extends FormatoDados{
-    private String valorMascara;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -7393537288254731288L;
+	
+	private String valorMascara;
     private String digitoMilhar = "";
         
     /**

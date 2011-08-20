@@ -15,7 +15,12 @@ import javax.swing.text.BadLocationException;
  * @version 0.1-SNAPTSHOT 21/04/2011
  */
 public class FormatoDecimal extends FormatoDados{
-    private String valorMascara;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8070897612466988188L;
+	
+	private String valorMascara;
     private String digitoMilhar = "";
     private String digitoDecimal = "";
 

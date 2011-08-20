@@ -14,7 +14,12 @@ import javax.swing.text.BadLocationException;
  * @version 0.1-SNAPTSHOT 21/04/2011
  */
 public class FormatoNumeroSimples extends FormatoDados {
-    private String valorMascara;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 4447395362613727055L;
+	
+	private String valorMascara;
     private String digitoMilhar = "";
     
     /**

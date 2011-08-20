@@ -14,7 +14,12 @@ import javax.swing.text.PlainDocument;
  * @version 0.1-SNAPTSHOT 21/04/2011
  */
 public abstract class FormatoDados extends PlainDocument{
-    private StringBuilder numeros = new StringBuilder();
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 3487665593490143688L;
+	
+	private StringBuilder numeros = new StringBuilder();
     private StringBuilder decimal = new StringBuilder();
     private Integer tamanhoMaximo = 0;
     private Integer tamanhoMaximoDecimal = 2;
