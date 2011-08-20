@@ -36,7 +36,7 @@ public class FormatoQuantidade extends FormatoDados{
 
     /**
      * Construtor da classe
-     * @param mascara String - Máscara para formatação de dados
+     * @param mascara - String - Mascara para formatacao de dados
      * @throws BadLocationException 
      */
     public FormatoQuantidade(String mascara) throws BadLocationException {
@@ -46,8 +46,8 @@ public class FormatoQuantidade extends FormatoDados{
     }
     
     /**
-     * Configura o ponto decimal no padrão americado ou brasileiro
-     * @param mascara String - Máscara para a formatação dos dados
+     * Configura o ponto decimal no padrao americado ou brasileiro
+     * @param mascara String - Mascara para a formatacao dos dados
      */
     private void configuraPontoDecimal(String mascara){
         if (mascara.contains(".")){
@@ -60,8 +60,8 @@ public class FormatoQuantidade extends FormatoDados{
     }
     
     /**
-     * Configura a máscara atribuindo zeros no lugar das cerquilhas
-     * @param mascara String - Máscara para a formatação dos dados
+     * Configura a mascara atribuindo zeros no lugar das cerquilhas
+     * @param mascara - String - Mascara para a formatacao dos dados
      */
     private void configuraMascara(String mascara){
         this.valorMascara = mascara.replaceAll("[#]", "0");
@@ -74,9 +74,9 @@ public class FormatoQuantidade extends FormatoDados{
     }
     
     /**
-     * Formata os dados digitados no padrão bancário
-     * @param numeroSemFormato String - Número a ser formatado
-     * @return String - Número formatado
+     * Formata os dados digitados no padrao bancario
+     * @param numeroSemFormato - String - Numero a ser formatado
+     * @return String - Numero formatado
      */
     @Override
     public String formata(String numeroSemFormato) {
@@ -134,10 +134,10 @@ public class FormatoQuantidade extends FormatoDados{
     }
 
     /**
-     * Formata os dados digitados no padrão calculadora
-     * @param numeroSemFormato String - Número inteiro a ser formatado
-     * @param decimalSemFormato String - Número decimal a ser formatado
-     * @return String - Número formatado
+     * Formata os dados digitados no padrao calculadora
+     * @param numeroSemFormato - String - Numero inteiro a ser formatado
+     * @param decimalSemFormato - String - Numero decimal a ser formatado
+     * @return String - Numero formatado
      */
     @Override
     public String formata(String numeroSemFormato, String decimalSemFormato) {
@@ -195,8 +195,8 @@ public class FormatoQuantidade extends FormatoDados{
     }
 
     /**
-     * Retorna o valor como número duplo
-     * @return Duplo -  Valor do campo
+     * Retorna o valor como numero duplo
+     * @return Double - Valor do campo
      */
     @Override
     public Double getValorCampo() {
@@ -213,7 +213,7 @@ public class FormatoQuantidade extends FormatoDados{
     }
 
     /**
-     * Retorna o valor em uma string com o formato no padrão americano
+     * Retorna o valor em uma string com o formato no padrao americano
      * @return String - Valor do campo
      */
     @Override

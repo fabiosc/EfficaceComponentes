@@ -28,32 +28,32 @@ public abstract class FormatoDados extends PlainDocument{
     private Boolean padraoBancario = true;
 
     /**
-     * Retorna os números digitados sem formatação
-     * @return StringBuilder - Números digitadis
+     * Retorna os numeros digitados sem formataçao
+     * @return StringBuilder - Numeros digitadis
      */
     public StringBuilder getNumeros() {
         return this.numeros;
     }
 
     /**
-     * Atribui os números digitados
-     * @param numeros Stringbuilder - Números digitados
+     * Atribui os numeros digitados
+     * @param numeros - StringBuilder - Numeros digitados
      */
     public void setNumeros(StringBuilder numeros) {
         this.numeros = numeros;
     }
 
     /**
-     * Retorna os números decimais digitados quandi não se usa o padrão bancário
-     * @return StringBuilder - Números decimais
+     * Retorna os numeros decimais digitados quandi nao se usa o padrao bancario
+     * @return StringBuilder - Numeros decimais
      */
     public StringBuilder getDecimal() {
         return this.decimal;
     }
 
     /**
-     * Atribui os números decimais
-     * @param decimal StringBuilder - Números digitais digitados
+     * Atribui os numeros decimais
+     * @param decimal - StringBuilder - Numeros referente aos digitos, informados (digitados)
      */
     public void setDecimal(StringBuilder decimal) {
         this.decimal = decimal;
@@ -61,7 +61,7 @@ public abstract class FormatoDados extends PlainDocument{
 
     /**
      * Retorna a quantidade de caracteres que o campo pode receber
-     * @return Inteiro - Quantide de caracteres que o campo pode receber
+     * @return Integer - Quantide de caracteres que o campo pode receber
      */
     public Integer getTamanhoMaximo() {
         return this.tamanhoMaximo;
@@ -69,7 +69,7 @@ public abstract class FormatoDados extends PlainDocument{
 
     /**
      * Atribui a quantidade de caracteres que o campo pode receber
-     * @param tamanhoMaximo Inteiro - Quantidade de caracteres que o campo pode receber
+     * @param tamanhoMaximo - Integer - Quantidade de caracteres que o campo pode receber
      */
     public void setTamanhoMaximo(Integer tamanhoMaximo) {
         this.tamanhoMaximo = tamanhoMaximo;
@@ -77,7 +77,7 @@ public abstract class FormatoDados extends PlainDocument{
 
     /**
      * Retorna a quantidade de digitos decimais que o campo pode receber
-     * @return Inteiro - Quantidade de digitos decimais que o campo pode receber
+     * @return Integer - Quantidade de digitos decimais que o campo pode receber
      */
     public Integer getTamanhoMaximoDecimal() {
         return this.tamanhoMaximoDecimal;
@@ -85,7 +85,7 @@ public abstract class FormatoDados extends PlainDocument{
 
     /**
      * Atribui a quantidade de digitos decimais que o campos pode receber
-     * @param tamanhoMaximoDecimal - Quantidade de digitos decimais que o campo pode receber
+     * @param tamanhoMaximoDecimal - Integer - Quantidade de digitos decimais que o campo pode receber
      */
     public void setTamanhoMaximoDecimal(Integer tamanhoMaximoDecimal) {
         this.tamanhoMaximoDecimal = tamanhoMaximoDecimal;
@@ -93,16 +93,16 @@ public abstract class FormatoDados extends PlainDocument{
 
     /**
      * Retorna true se o campo possui digitos decimais ou false
-     * caso não possua
-     * @return Boleano - True ou False caso o campo possua digitos decimais ou não
+     * caso nao possua
+     * @return Boolean - True ou False caso o campo possua digitos decimais ou nao
      */
     public Boolean getPossuiDecimal() {
         return this.possuiDecimal;
     }
 
     /**
-     * Especifica se o campo possuirá digitos decimais ou não
-     * @param possuiDecimal Boleano - True ou False caso o campo possua ou não digitos decimais
+     * Especifica se o campo possuira digitos decimais ou nao
+     * @param possuiDecimal - Boolean - True ou False caso o campo possua ou nao digitos decimais
      */
     public void setPossuiDecimal(Boolean possuiDecimal) {
         this.possuiDecimal = possuiDecimal;
@@ -110,31 +110,31 @@ public abstract class FormatoDados extends PlainDocument{
 
     /**
      * Retorna true caso a tecla do ponto ou a virgula sejam pressionados
-     * @return Boleano - True ou False caso o ponto ou a virgula sejam digitados
+     * @return Boolean - True ou False caso o ponto ou a virgula sejam digitados
      */
     public Boolean getFlagDecimal() {
         return this.flagDecimal;
     }
 
     /**
-     * Atribui True caso a tecla do ponto ou vírgula seja pressionada
-     * @param flagDecimal 
+     * Atribui Abtribui True caso a tecla referente a virgula ou ao ponto seja pressionada
+     * @param flagDecimal - Boolean - Abtribui True caso a tecla referente a virgula ou ao ponto seja pressionada 
      */
     public void setFlagDecimal(Boolean flagDecimal) {
         this.flagDecimal = flagDecimal;
     }
 
     /**
-     * Retorna True ou False caso o campo siga ou não o padrão bancário de digitação
-     * @return Boleano True ou False, caso o campo siga ou não o padrão bancário de digitação
+     * Retorna True ou False caso o campo siga ou nao o padrao bancario de digitaçao
+     * @return Boolean - True ou False, caso o campo siga ou nao o padrao bancario de digitaçao
      */
     public Boolean getPadraoBancario() {
         return padraoBancario;
     }
 
     /**
-     * Atribui True ou False caso o campo siga o padrão bancário de digitação
-     * @param padraoBancario Boleano - True ou False, caso o campo siga ou não o padrão bancário de digitação
+     * Atribui True ou False caso o campo siga o padrao bancario de digitaçao
+     * @param padraoBancario - Boolean - True ou False, caso o campo siga ou nao o padrao bancario de digitaçao
      */
     public void setPadraoBancario(Boolean padraoBancario) {
         this.padraoBancario = padraoBancario;
@@ -142,7 +142,7 @@ public abstract class FormatoDados extends PlainDocument{
 
     /**
      * Atribui dados ao campo
-     * @param str String - Valor do campo
+     * @param str - String - Valor do campo
      * @throws BadLocationException 
      */
     public void set(String str) throws BadLocationException {
@@ -158,13 +158,6 @@ public abstract class FormatoDados extends PlainDocument{
         return getText(0, getLength());
     }
 
-    /**
-     * Estendida de PlainDocument
-     * @param offs
-     * @param str
-     * @param a
-     * @throws BadLocationException 
-     */
     @Override
     public void insertString(int offs, String str, AttributeSet a) throws BadLocationException {
         if (getPossuiDecimal()){
@@ -184,12 +177,6 @@ public abstract class FormatoDados extends PlainDocument{
         }
     }
 
-    /**
-     * Extendida de PlaindDocument
-     * @param offs
-     * @param len
-     * @throws BadLocationException 
-     */
     @Override
     public void remove(int offs, int len) throws BadLocationException {
         super.remove(offs, len);
@@ -198,7 +185,7 @@ public abstract class FormatoDados extends PlainDocument{
 
     /**
      * Trata os dados digitados
-     * @param str String - Dados digitados
+     * @param str - String - Dados digitados
      * @throws BadLocationException 
      */
     private void insereNumero(String str) throws BadLocationException {
@@ -211,7 +198,7 @@ public abstract class FormatoDados extends PlainDocument{
                 set(get().substring(0, get().length() - 1));
             }
         }
-        //Remove qualquer caractere que não seja número
+        //Remove qualquer caractere que nao seja numero
         if (get().length() > 1 && str.matches("^[\\d]")) {
             if (isPrimeiroDigitoValido(str)) {
                 if (!getPossuiDecimal()){
@@ -253,9 +240,9 @@ public abstract class FormatoDados extends PlainDocument{
     }
 
     /**
-     * Remove número digitado
-     * @param offs - Inteiro Posicao
-     * @param len - Inteiro tamanho
+     * Remove numero digitado
+     * @param offs - Integer - Posicao
+     * @param len - Integer - tamanho
      * @throws BadLocationException 
      */
     private void removeNumero(int offs, int len) throws BadLocationException {
@@ -306,9 +293,9 @@ public abstract class FormatoDados extends PlainDocument{
     }
 
     /**
-     * Verifica se o primeiro digito digitado é válido
-     * @param str String - Valor do primeiro digito
-     * @return Boleano - True ou False caso o primeiro digito seja válido ou não
+     * Verifica se o primeiro digito digitado e valido
+     * @param str - String - Valor do primeiro digito
+     * @return Boolean - True ou False caso o primeiro digito seja valido ou nao
      */
     private Boolean isPrimeiroDigitoValido(String str){
         if (getNumeros().length() == 0 && getDecimal().length() == 0){
@@ -320,138 +307,30 @@ public abstract class FormatoDados extends PlainDocument{
     }
 
     /**
-     * Formata os dados digitados no padrão bancário
-     * @param numeroSemFormato String - Número a ser formatado
-     * @return String - Número formatado
+     * Formata os dados digitados no padrao bancario
+     * @param numeroSemFormato - String - Numero a ser formatado
+     * @return String - Numero formatado
      */
     public abstract String formata(String numeroSemFormato);
     
     /**
-     * Formata os dados digitados no padrão calculadora
-     * @param numeroSemFormato String - Número inteiro a ser formatado
-     * @param decimalSemFormato String - Número decimal a ser formatado
-     * @return String - Número formatado
+     * Formata os dados digitados no padrao calculadora
+     * @param numeroSemFormato - String - Numero inteiro a ser formatado
+     * @param decimalSemFormato - String - Numero decimal a ser formatado
+     * @return String - Numero formatado
      */
     public abstract String formata(String numeroSemFormato, String decimalSemFormato);
     
     /**
-     * Retorna o valor como número duplo
-     * @return Duplo -  Valor do campo
+     * Retorna o valor como numero duplo
+     * @return Double - Valor do campo
      */
     public abstract Double getValorCampo();
     
     /**
-     * Retorna o valor em uma string com o formato no padrão americano
+     * Retorna o valor em uma string com o formato no padrao americano
      * @return String - Valor do campo
      */
     public abstract String getValorCampoString();
-    
-/*
-    FormatoMoeda ORIGINAL
-     
-    @Override
-    public String formata(String numeroSemFormato) {
-        if (numeroSemFormato.isEmpty()) {
-            return "0,00";
-        }
-        int tamanhoTexto = getNumeros().length();
-        int quantidadeClasses = Math.round(tamanhoTexto / 3);
-        int resto = (tamanhoTexto % 3);
-
-        StringBuilder regex = new StringBuilder();
-        StringBuilder mask = new StringBuilder();
-
-        if (quantidadeClasses == 0 && resto > 0) {
-            regex.append("(\\d{").append(resto).append("})");
-            mask.append((resto == 1 ? "0,0$1" : "0,$1"));
-        } else {
-            //PARA C = 1
-            if (quantidadeClasses == 1) {
-                regex.append("(\\d{").append(quantidadeClasses + resto).append("})");
-                regex.append("(\\d{2})");
-                mask.append("$1,$2");
-                //PARA C > 1
-            } else if (quantidadeClasses > 1) {
-                int quantidadeClassesCompletas = (quantidadeClasses - 1);
-                int posicaoPrimeiroDigito = (quantidadeClasses - quantidadeClassesCompletas) + resto;
-
-                regex.append("(\\d{").append(posicaoPrimeiroDigito).append("})");
-                mask.append("$1.");
-                for (int i = 0; i < quantidadeClassesCompletas; i++) {
-                    regex.append("(\\d{3})");
-                    if (i < (quantidadeClassesCompletas - 1)) {
-                        mask.append("$").append(i + 2).append(".");
-                    } else {
-                        mask.append("$").append(i + 2).append(",");
-                    }
-                }
-                regex.append("(\\d{2})");
-                mask.append("$").append((quantidadeClasses + 1));
-            }
-        }
-        String resultado = Pattern.compile(regex.toString()).matcher(numeroSemFormato).replaceAll(mask.toString());
-        return resultado;
-    }
-     
-     
-    FormataQuantidadeFracionada ORIGINAL
-    @Override
-    public String formata(String numeroSemFormato) {
-        if (numeroSemFormato.isEmpty()) {
-            return this.valorMascara;
-        }
-        int tamanhoTexto = getNumeros().length();
-        int quantidadeClasses = Math.round(tamanhoTexto / 3);
-        int resto = (tamanhoTexto % 3);
-
-        StringBuilder regex = new StringBuilder();
-        StringBuilder mask = new StringBuilder();
-
-        if (quantidadeClasses == 0 && resto > 0) {
-            regex.append("(\\d{").append(resto).append("})");
-            mask.append((resto == 1 ? "0.00$1" : (resto==2 ? "0.0$1":"0.$1")));
-        } else {
-            //PARA C = 1
-            if (quantidadeClasses == 1) {
-                //System.out.println(" --> " + myDoc.getNumeros());
-                if (resto == 0){
-                    regex.append("(\\d{3})");
-                    mask.append("0.$1");
-                } else {
-                    regex.append("(\\d{").append((resto>0?resto:quantidadeClasses)).append("})");
-                    regex.append("(\\d{3})");
-                    mask.append("$1.$2");
-                }
-                //PARA C > 1
-            } else if (quantidadeClasses > 1) {
-
-                if (resto > 0){
-                    regex.append("(\\d{").append(resto).append("})");
-                    mask.append("$1.");
-                }
-                for (int i = 0; i < quantidadeClasses; i++) {
-                    regex.append("(\\d{3})");
-                    if (resto == 0){
-                        if (i < (quantidadeClasses - 1)) {
-                            mask.append("$").append(i + 1).append(".");
-                        } else {
-                            mask.append("$").append(i + 1);
-                        }
-                    } else {
-                        if (i < (quantidadeClasses - 1)) {
-                            mask.append("$").append(i + 2).append(".");
-                        } else {
-                            mask.append("$").append(i + 2);
-                        }
-                    }
-                }
-            }
-        }
-        String resultado = Pattern.compile(regex.toString()).matcher(numeroSemFormato).replaceAll(mask.toString());
-        //System.out.println("TEXTO: " + document.getNumeros() + " REGEX: " + regex.toString() + " MASK: " + mask.toString() + "\n" + resultado);
-        return resultado;
-    }
-     
-*/
     
 }

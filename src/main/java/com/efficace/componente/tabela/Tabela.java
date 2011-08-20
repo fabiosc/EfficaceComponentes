@@ -13,7 +13,7 @@ import javax.swing.table.TableModel;
 
 /**
  * Tabela.java
- * @author Fábio Sicupira Cavalcante
+ * @author Fabio Sicupira Cavalcante
  * @version 0.1-SNAPTSHOT 16/08/2011
 */
 public class Tabela extends JTable{
@@ -36,20 +36,18 @@ public class Tabela extends JTable{
     }
 
     /**
-     * Método que  retorna um array de inteiros
-     * que definem o alinhamento das colunas da
-     * tabela
-     * @return 
+     * Retorna um array de inteiros que definem
+     * o alinhamento das colunas da tabela
+     * @return Integer[] 
      */
     public Integer[] getTabelaAlinhamentosDados() {
         return tabelaAlinhamentosDados;
     }
 
     /**
-     * Método que  recebe  um array de inteiros 
-     * que definem o alinhamento das colunas da
-     * tabela
-     * @param tabelaAlinhamentosDados 
+     * Recebe um array de inteiros que definem 
+     * o alinhamento das colunas da tabela
+     * @param tabelaAlinhamentosDados - Integer[]
      */
     public void setTabelaAlinhamentosDados(Integer[] tabelaAlinhamentosDados) {
         this.tabelaAlinhamentosDados = tabelaAlinhamentosDados;
@@ -57,20 +55,18 @@ public class Tabela extends JTable{
     }
 
     /**
-     * Método que retorna um array de formatos
-     * que  definem  o  formato  dos dados nas
-     * colunas da tabela
-     * @return 
+     * Retorna um array de formatos  que definem
+     * o formato dos dados nas colunas da tabela
+     * @return Format[]
      */
     public Format[] getTabelaFormatosDados() {
         return tabelaFormatosDados;
     }
 
     /**
-     * Método que recebe um array de formatos
-     * que definem  o  formato  dos dados nas
-     * colunas da tabela
-     * @param tabelaFormatosDados 
+     * Recebe um array de formatos  que  definem
+     * o formato dos dados nas colunas da tabela
+     * @param tabelaFormatosDados - Format[]
      */
     public void setTabelaFormatosDados(Format[] tabelaFormatosDados) {
         this.tabelaFormatosDados = tabelaFormatosDados;
@@ -78,20 +74,18 @@ public class Tabela extends JTable{
     }
 
     /**
-     * Método que retorna um array de inteiros
-     * que definem  o  tamanho  das colunas da
-     * tabela
-     * @return 
+     * Retorna um array de inteiros que definem
+     * o tamanho das colunas da tabela
+     * @return Integer[]
      */
     public Integer[] getTabelaTamanhosColuna() {
         return tabelaTamanhosColuna;
     }
 
     /**
-     * Método que recebe um array de inteiros
-     * que definem  o  tamanho das colunas da
-     * tabela
-     * @param tabelaTamanhosColuna 
+     * Recebe um array de inteiros que definem
+     * o tamanho das colunas da tabela
+     * @param tabelaTamanhosColuna - Integer[]
      */
     public void setTabelaTamanhosColuna(Integer[] tabelaTamanhosColuna) {
         this.tabelaTamanhosColuna = tabelaTamanhosColuna;
@@ -99,14 +93,13 @@ public class Tabela extends JTable{
     }
 
     /**
-     * Método que realiza o ajuste das colunas
-     * da tabela
+     * Realiza o ajuste das colunas da tabela
      */
     private void ajustaTabela(){
         //Desabilita o auto redimensionamento da tabela
         this.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        //Não permite drag-and-drop e nem resize de colunas
+        //Nao permite drag-and-drop e nem resize de colunas
         this.getTableHeader().setReorderingAllowed(false);
         this.getTableHeader().setResizingAllowed(false);
 
@@ -129,10 +122,9 @@ public class Tabela extends JTable{
     }
 
     /**
-     * Método que recebe um array de objetos
-     * contendo os dados  que  preencherão a 
-     * tabela
-     * @param dados 
+     * Recebe um array de objetos contendo os dados
+     * que preencherao a tabela
+     * @param dados - Object[][]
      */
     public void setDados(Object[][] dados){
         DefaultTableModel modelo = (DefaultTableModel) this.getModel();
@@ -141,11 +133,11 @@ public class Tabela extends JTable{
     }
     
     /**
-     * Método que retorna um array de objetos
-     * a partir de  um  modelo  de  tabela, e 
-     * auxilia o preenchimento da tabela
-     * @param modelo
-     * @return 
+     * Retorna um array de objetos a partir de
+     * um   modelo  de  tabela,  e  auxilia  o 
+     * preenchimento da tabela
+     * @param modelo - TableModel
+     * @return Object[][] 
      */
     private Object[] getColunasIdentificadores(TableModel modelo){
         modelo = (DefaultTableModel) this.getModel();
@@ -160,6 +152,5 @@ public class Tabela extends JTable{
     public boolean isCellEditable(int row, int column) {
         return false;
     }
-    
     
 }

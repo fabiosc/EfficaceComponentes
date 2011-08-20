@@ -7,7 +7,7 @@ import javax.swing.JTextField;
 
 /**
  * Posiciona o cursor no final do campo
- * a qualquer ação do mouse no campo
+ * a qualquer acao do mouse no campo
  */
 public class TratamentoMouse implements MouseListener {
 	

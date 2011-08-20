@@ -14,8 +14,8 @@ import javax.swing.text.BadLocationException;
 public class FabricaFormatoDados {
     /**
      * Construtor da classe
-     * @param mascara String - Máscara do campo
-     * @return PlainDocument - Retorna o padrão de edição do campo
+     * @param mascara - String - Mascara do campo
+     * @return PlainDocument - Retorna o padrao de edicao do campo
      * @throws BadLocationException 
      */
     public FormatoDados criar(String mascara) throws BadLocationException{
@@ -34,12 +34,12 @@ public class FabricaFormatoDados {
     
     /**
      * 
-     * @param mascara String - Máscara do campo
-     * @param padraoBancario Boleano - Informa se o campo deve seguir o padrão de digitação de bancos
-     * @return PlainDocument - Retorna o padrão de edição do campo
+     * @param mascara - String - Mascara do campo
+     * @param padraoBancario - Boolean - Informa se o campo deve seguir o padrao de digitacao de bancos
+     * @return PlainDocument - Retorna o padrao de edicao do campo
      * @throws BadLocationException 
      */
-    public FormatoDados criar(String mascara, boolean padraoBancario) throws BadLocationException{
+    public FormatoDados criar(String mascara, Boolean padraoBancario) throws BadLocationException{
         if (mascara.equals("#")){
             FormatoNumeroSimples fns = new FormatoNumeroSimples(mascara);
             fns.setPadraoBancario(padraoBancario);

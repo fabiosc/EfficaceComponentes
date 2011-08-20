@@ -42,22 +42,22 @@ public class Campo extends JTextField{
     }
 
     /**
-     * Retorna a máscara do campo
-     * @return String - Máscara do campo
+     * Retorna a mascara do campo
+     * @return String - Mascara do campo
      */
     public String getMascara() {
         return mascara;
     }
 
     /**
-     * Atribui uma máscara ao campo
-     * Máscara: #.#, #.## ou #.### - Números decimais no padrão americano
-     *        : #,#, #,## ou #,### - Números decimais no padrão brasileiro
-     *        : ,#                 - Números inteiros no padrão americano
-     *        : .#                 - Números inteiros no padrão brasileiro
-     *        : #                  - Números inteiros sem formato
+     * Atribui uma mascara ao campo
+     * Mascara: #.#, #.## ou #.### - Numeros decimais no padrao americano
+     *        : #,#, #,## ou #,### - Numeros decimais no padrao brasileiro
+     *        : ,#                 - Numeros inteiros no padrao americano
+     *        : .#                 - Numeros inteiros no padrao brasileiro
+     *        : #                  - Numeros inteiros sem formato
      * 
-     * @param mascara String - Máscara do campo
+     * @param mascara - String - Mascara do campo
      * @throws BadLocationException 
      */
     public void setMascara(String mascara) throws BadLocationException {
@@ -69,7 +69,7 @@ public class Campo extends JTextField{
 
     /**
      * Retorna a quantidade de caracteres que podem ser digitados no campo
-     * @return Inteiro - Quantidade de caracteres
+     * @return Integer - Quantidade de caracteres
      */
     public Integer getQuantidadeDigitos() {
         return quantidadeDigitos;
@@ -77,7 +77,7 @@ public class Campo extends JTextField{
 
     /**
      * Atribui a quantidade de caracteres que podem ser digitados no campo
-     * @param tamanhoMaximo Inteiro - Quantidade de caracteres
+     * @param tamanhoMaximo - Integer - Quantidade de caracteres
      */
     public void setQuantidadeDigitos(Integer tamanhoMaximo) {
         this.quantidadeDigitos = tamanhoMaximo;
@@ -87,17 +87,17 @@ public class Campo extends JTextField{
     }
 
     /**
-     * Retorna true se a digitação segue o padrão bancário
-     * ou false se não segue.
-     * @return Boleano - Padrão bancário
+     * Retorna true se a digitaçao segue o padrao bancario
+     * ou false se nao segue.
+     * @return Boleano - Padrao bancario
      */
     public Boolean getPadraoBancario() {
         return padraoBancario;
     }
 
     /**
-     * Atribui o padrão bancário a um campo
-     * @param padraoBancario Boleano - Padrão bancário
+     * Atribui o padrao bancario a um campo
+     * @param padraoBancario Boolean - Padrao bancario (true ou false)
      */
     public void setPadraoBancario(Boolean padraoBancario) {
         this.padraoBancario = padraoBancario;
@@ -121,15 +121,15 @@ public class Campo extends JTextField{
     }
 
     /**
-     * Retorna o valor como número duplo
-     * @return Duplo -  Valor do campo
+     * Retorna o valor como numero duplo
+     * @return Double - Valor do campo
      */
     public Double getValor(){
         return fd.getValorCampo();
     }
     
     /**
-     * Retorna o valor em uma string com o formato no padrão americano
+     * Retorna o valor em uma string com o formato no padrao americano
      * @return String - Valor do campo
      */
     public String getValorString(){

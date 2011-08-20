@@ -35,7 +35,7 @@ public class FormatoNumeroSimples extends FormatoDados {
 
     /**
      * Construtor da classe
-     * @param mascara String - Máscara para formatação de dados
+     * @param mascara - String - Mascara para formatacao de dados
      * @throws BadLocationException 
      */
     public FormatoNumeroSimples(String mascara) throws BadLocationException {
@@ -45,8 +45,8 @@ public class FormatoNumeroSimples extends FormatoDados {
     }
     
     /**
-     * Configura o ponto decimal no padrão americado ou brasileiro
-     * @param mascara String - Máscara para a formatação dos dados
+     * Configura o ponto decimal no padrao americado ou brasileiro
+     * @param mascara - String - Mascara para a formatacao dos dados
      */
     private void configuraPontoDecimal(String mascara){
         if (mascara.contains(".")){
@@ -59,8 +59,8 @@ public class FormatoNumeroSimples extends FormatoDados {
     }
     
     /**
-     * Configura a máscara atribuindo zeros no lugar das cerquilhas
-     * @param mascara String - Máscara para a formatação dos dados
+     * Configura a mascara atribuindo zeros no lugar das cerquilhas
+     * @param mascara - String - Mascara para a formatacao dos dados
      */
     private void configuraMascara(String mascara){
         this.valorMascara = mascara.replaceAll("[#]", "0");
