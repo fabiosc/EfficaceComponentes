@@ -11,7 +11,7 @@ import javax.swing.text.PlainDocument;
 import com.efficace.componente.excecoes.DigitoException;
 
 /**
- * FormatoDados.java
+ * FormataDados.java
  * @author Fabio Sicupira Cavalcante - Brasil, 21/04/2011
  * @version 0.1-SNAPTSHOT 21/04/2011
  */

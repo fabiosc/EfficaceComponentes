@@ -9,7 +9,7 @@ import com.efficace.componente.excecoes.MascaraException;
 import com.efficace.componente.util.Util;
 
 /**
- * FormatoDecimal.java
+ * FormataDecimal.java
  * @author Fabio Sicupira Cavalcante - Brasil, 21/04/2011
  * @version 0.1-SNAPTSHOT 21/04/2011
  */

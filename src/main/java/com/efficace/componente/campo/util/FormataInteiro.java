@@ -1,9 +1,18 @@
+/*
+ * Desenvolvido por Efficace Tecnologia
+ * Brasil, 07-09-2011
+ */
 package com.efficace.componente.campo.util;
 
 import com.efficace.componente.excecoes.DigitoNumericoException;
 import com.efficace.componente.excecoes.MascaraException;
 import com.efficace.componente.util.Util;
 
+/**
+ * FormataInteiro.java
+ * @author Fabio Sicupira Cavalcante - Brasil, 07/09/2011
+ * @version 0.1-SNAPTSHOT 07/09/2011
+ */
 public class FormataInteiro extends FormataDados {
 	
 	private static final long serialVersionUID = -4937420504903116581L;
