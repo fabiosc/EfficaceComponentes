@@ -13,7 +13,6 @@ public class TratamentoMouse implements MouseListener {
 	
 	private JTextField jTextField;
 	
-	
     public TratamentoMouse(JTextField jTextField) {
 		super();
 		this.jTextField = jTextField;

@@ -4,14 +4,14 @@
  */
 package com.efficace.componente.campo;
 
-import com.efficace.componente.campo.util.FabricaFormatoDados;
-import com.efficace.componente.campo.util.FormatoDados;
-import com.efficace.componente.campo.util.TratamentoFoco;
-import com.efficace.componente.campo.util.TratamentoMouse;
-import com.efficace.componente.campo.util.TratamentoTecla;
-
 import javax.swing.JTextField;
+import javax.swing.text.AbstractDocument;
 import javax.swing.text.BadLocationException;
+import javax.swing.text.DocumentFilter;
+
+import com.efficace.componente.campo.util.FabricaFormatoDados;
+import com.efficace.componente.campo.util.FormataDados;
+import com.efficace.componente.excecoes.MascaraException;
 
 /**
  * Campo.java
@@ -19,27 +19,18 @@ import javax.swing.text.BadLocationException;
  * @version 0.1-SNAPTSHOT 21/04/2011
  */
 public class Campo extends JTextField{
-    /**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 3908628583363836754L;
 	
 	private String mascara;
-    private Integer quantidadeDigitos = 0;
-    private Boolean padraoBancario = true;
+    private Integer quantidadeDigitos = 10;
     private FabricaFormatoDados fabrica = new FabricaFormatoDados();
-    private FormatoDados fd;
+    private FormataDados fd;
 
     /**
      * Construtor da classe Campo
      */
-    public Campo() {
-        alinhaDireita();
-        posicionaCursor();
-        addKeyListener(new TratamentoTecla());
-        addFocusListener(new TratamentoFoco(this));
-        addMouseListener(new TratamentoMouse(this));
-    }
+    public Campo() {}
 
     /**
      * Retorna a mascara do campo
@@ -53,18 +44,22 @@ public class Campo extends JTextField{
      * Atribui uma mascara ao campo
      * Mascara: #.#, #.## ou #.### - Numeros decimais no padrao americano
      *        : #,#, #,## ou #,### - Numeros decimais no padrao brasileiro
-     *        : ,#                 - Numeros inteiros no padrao americano
-     *        : .#                 - Numeros inteiros no padrao brasileiro
-     *        : #                  - Numeros inteiros sem formato
+     *        : #                  - Numeros inteiros
      * 
      * @param mascara - String - Mascara do campo
+     * @throws MascaraException 
      * @throws BadLocationException 
      */
-    public void setMascara(String mascara) throws BadLocationException {
-        fd = fabrica.criar(mascara);
-        setCaretPosition(getText().length());
-        setDocument(fd);
-        this.mascara = mascara;
+    public void setMascara(String mascara) {
+    	try {
+			fd = fabrica.criar(this, mascara, this.quantidadeDigitos);
+    		this.setDocument(fd);
+    		setCaretPosition(getText().length());
+            ((AbstractDocument)this.getDocument()).setDocumentFilter(new DocumentFilter());
+    	} catch (BadLocationException e){
+    		e.printStackTrace();
+    	}
+    	
     }
 
     /**
@@ -82,58 +77,8 @@ public class Campo extends JTextField{
     public void setQuantidadeDigitos(Integer tamanhoMaximo) {
         this.quantidadeDigitos = tamanhoMaximo;
         if (this.quantidadeDigitos != 0 && fd != null){
-            fd.setTamanhoMaximo(this.quantidadeDigitos);
+            fd.setQuantidadeDigitos(this.quantidadeDigitos);
         }
     }
 
-    /**
-     * Retorna true se a digitaçao segue o padrao bancario
-     * ou false se nao segue.
-     * @return Boleano - Padrao bancario
-     */
-    public Boolean getPadraoBancario() {
-        return padraoBancario;
-    }
-
-    /**
-     * Atribui o padrao bancario a um campo
-     * @param padraoBancario Boolean - Padrao bancario (true ou false)
-     */
-    public void setPadraoBancario(Boolean padraoBancario) {
-        this.padraoBancario = padraoBancario;
-        if (fd != null){
-            fd.setPadraoBancario(this.padraoBancario);
-        }
-    }
-
-    /**
-     * Alinha os caracteres do campo a direita
-     */
-    private void alinhaDireita(){
-        setHorizontalAlignment(JTextField.TRAILING);
-    }
-
-    /**
-     * Posiciona o cursos no campo
-     */
-    private void posicionaCursor(){
-        setCaretPosition(getText().length());
-    }
-
-    /**
-     * Retorna o valor como numero duplo
-     * @return Double - Valor do campo
-     */
-    public Double getValor(){
-        return fd.getValorCampo();
-    }
-    
-    /**
-     * Retorna o valor em uma string com o formato no padrao americano
-     * @return String - Valor do campo
-     */
-    public String getValorString(){
-        return fd.getValorCampoString();
-    }
-    
 }
