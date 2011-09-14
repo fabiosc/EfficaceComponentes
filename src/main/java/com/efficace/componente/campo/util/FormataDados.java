@@ -57,7 +57,6 @@ public abstract class FormataDados extends PlainDocument{
 		return null;
 	}	
 	
-	@Override
 	public void replace(int offset, int length, String string, AttributeSet attrs) throws BadLocationException {
 		
     	String resultado = (get().equals("")?this.mascaraFormatada:get());
@@ -73,7 +72,6 @@ public abstract class FormataDados extends PlainDocument{
 		
 	}
 	
-    @Override
     public void remove(int offset, int length) throws BadLocationException {
     	
         if (this.digitos.length() > 0){

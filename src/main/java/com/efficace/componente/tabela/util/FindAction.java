@@ -27,9 +27,6 @@ import java.awt.event.KeyListener;
  */
 public abstract class FindAction extends AbstractAction implements DocumentListener, KeyListener {
 
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 6189540387754229513L;
 	
 	JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));

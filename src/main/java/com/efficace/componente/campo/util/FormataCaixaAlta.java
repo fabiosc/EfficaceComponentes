@@ -21,7 +21,6 @@ public class FormataCaixaAlta extends FormataDados {
 		super.quantidadeDigitos = quantidadeDigitos;
 	}
 	
-	@Override
 	public String formata(String string, boolean insereDigito) throws DigitoException {
 		
         	if (insereDigito) {

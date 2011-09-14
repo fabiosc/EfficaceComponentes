@@ -21,9 +21,6 @@ import javax.swing.table.DefaultTableCellRenderer;
  */
 public class LineSelectionTableCellRenderer extends DefaultTableCellRenderer {
 
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = -2406173258671449959L;
 	
 	private List<Integer> linhasPositivadas = new ArrayList<Integer>();
@@ -169,8 +166,8 @@ public class LineSelectionTableCellRenderer extends DefaultTableCellRenderer {
      * @param indiceLinha
      * @return 
      */
-    /* VERIFICA SE LINHA JÁ ESTA POSITIVADA */
-    private boolean isPositivada(Integer indiceLinha){
+    /* VERIFICA SE LINHA JÃ� ESTA POSITIVADA */
+    public boolean isPositivada(Integer indiceLinha){
         int id = linhasPositivadas.indexOf(indiceLinha);
         if (id < 0) {
             return false;
@@ -183,7 +180,7 @@ public class LineSelectionTableCellRenderer extends DefaultTableCellRenderer {
      * @param indiceLinha
      * @return 
      */
-    /* VERIFICA SE LINHA JÁ ESTA  NEGATIVADA */
+    /* VERIFICA SE LINHA JÃ� ESTA  NEGATIVADA */
     private boolean isNegativada(Integer indiceLinha){
         int id = linhasNegativadas.indexOf(indiceLinha);
         if (id < 0){
@@ -202,7 +199,6 @@ public class LineSelectionTableCellRenderer extends DefaultTableCellRenderer {
      * @param column
      * @return 
      */
-    @Override
     public Component getTableCellRendererComponent(
             JTable table,
             Object value,

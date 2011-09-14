@@ -43,7 +43,8 @@ public class FabricaFormatoDados {
 			}
     		
     		fd.set(Util.mascaraFormatada(mascara));
-    	} else if (mascara.equals("#") || mascara.contains("#.") || mascara.contains("#,")){
+    	} else if ((mascara.equals("#") || mascara.contains("#.") || mascara.contains("#,")) &&
+    			Util.isNumero(Util.mascaraFormatada(mascara))){
     		jTextField.setHorizontalAlignment(JTextField.TRAILING);
     		jTextField.setCaretPosition(jTextField.getText().length());
 
@@ -69,6 +70,15 @@ public class FabricaFormatoDados {
 			}
     		
     	} else {
+    		jTextField.setHorizontalAlignment(JTextField.TRAILING);
+    		jTextField.setCaretPosition(jTextField.getText().length());
+
+    		jTextField.addKeyListener(new TratamentoTecla());
+    		jTextField.addFocusListener(new TratamentoFoco(jTextField));
+    		jTextField.addMouseListener(new TratamentoMouse(jTextField));
+    		
+			fd = new FormataMascara(Util.mascaraFormatada(mascara));
+			fd.set(Util.mascaraFormatada(mascara));
     	}
     	return fd;
     }

@@ -22,7 +22,7 @@ public class FormataInteiro extends FormataDados {
 	public FormataInteiro(String mascaraFormatada, int quantidadeDigitos) throws MascaraException {
 		super.mascaraFormatada = mascaraFormatada;
 		super.quantidadeDigitos = quantidadeDigitos;
-		configuraDigitos();
+		configuraSeparadores();
 	}
 	
     public String formata(String string, boolean insereDigito) throws DigitoNumericoException  {
@@ -55,7 +55,7 @@ public class FormataInteiro extends FormataDados {
         return true;
     }
     
-    private void configuraDigitos() throws MascaraException {
+    private void configuraSeparadores() throws MascaraException {
     	if (this.mascaraFormatada.contains(",")) {
     		this.caractereDigitoMilhar = ",";
     		this.mascaraFormatada = this.mascaraFormatada.substring(0, 1);

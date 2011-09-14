@@ -17,85 +17,62 @@ import javax.swing.table.TableModel;
  * @version 0.1-SNAPTSHOT 16/08/2011
 */
 public class Tabela extends JTable{
-    /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -3488444737034831984L;
 	
 	private LineSelectionTableCellRenderer renderer = new LineSelectionTableCellRenderer();
-    private Integer[] tabelaAlinhamentosDados;
-    private Format[] tabelaFormatosDados;
-    private Integer[] tabelaTamanhosColuna;
+    private Integer[] alinhamentoColunas;
+    private Format[] formatoDados;
+    private Integer[] tamanhoColunas;
 
-    /**
-     * Construtor da classe Tabela
-     */
     public Tabela(){
         ajustaTabela();
         new TableFindAction().install(this);
     }
-
-    /**
-     * Retorna um array de inteiros que definem
-     * o alinhamento das colunas da tabela
-     * @return Integer[] 
-     */
-    public Integer[] getTabelaAlinhamentosDados() {
-        return tabelaAlinhamentosDados;
+    
+    public Tabela(Integer[] alinhamentoColunas, Integer[] tamanhoColunas) {
+    	this.alinhamentoColunas = alinhamentoColunas;
+    	this.tamanhoColunas = tamanhoColunas;
+        ajustaTabela();
+        new TableFindAction().install(this);
     }
 
-    /**
-     * Recebe um array de inteiros que definem 
-     * o alinhamento das colunas da tabela
-     * @param tabelaAlinhamentosDados - Integer[]
-     */
-    public void setTabelaAlinhamentosDados(Integer[] tabelaAlinhamentosDados) {
-        this.tabelaAlinhamentosDados = tabelaAlinhamentosDados;
+    public Tabela(Format[] formatoDados, Integer[] alinhamentoColunas, Integer[] tamanhoColunas) {
+    	this.formatoDados = formatoDados;
+    	this.alinhamentoColunas = alinhamentoColunas;
+    	this.tamanhoColunas = tamanhoColunas;
+        ajustaTabela();
+        new TableFindAction().install(this);
+    }
+
+    public Integer[] getAlinhamentoColunas() {
+        return alinhamentoColunas;
+    }
+
+    public void setAlinhamentoColunas(Integer[] alinhamentoColunas) {
+        this.alinhamentoColunas = alinhamentoColunas;
         ajustaTabela();
     }
 
-    /**
-     * Retorna um array de formatos  que definem
-     * o formato dos dados nas colunas da tabela
-     * @return Format[]
-     */
-    public Format[] getTabelaFormatosDados() {
-        return tabelaFormatosDados;
+    public Format[] getFormatoDados() {
+        return formatoDados;
     }
 
-    /**
-     * Recebe um array de formatos  que  definem
-     * o formato dos dados nas colunas da tabela
-     * @param tabelaFormatosDados - Format[]
-     */
-    public void setTabelaFormatosDados(Format[] tabelaFormatosDados) {
-        this.tabelaFormatosDados = tabelaFormatosDados;
+    public void setFormatoDados(Format[] formatoDados) {
+        this.formatoDados = formatoDados;
         ajustaTabela();
     }
 
-    /**
-     * Retorna um array de inteiros que definem
-     * o tamanho das colunas da tabela
-     * @return Integer[]
-     */
-    public Integer[] getTabelaTamanhosColuna() {
-        return tabelaTamanhosColuna;
+    public Integer[] getTamanhoColunas() {
+        return tamanhoColunas;
     }
 
-    /**
-     * Recebe um array de inteiros que definem
-     * o tamanho das colunas da tabela
-     * @param tabelaTamanhosColuna - Integer[]
-     */
-    public void setTabelaTamanhosColuna(Integer[] tabelaTamanhosColuna) {
-        this.tabelaTamanhosColuna = tabelaTamanhosColuna;
+    public void setTamanhoColunas(Integer[] tamanhoColunas) {
+        this.tamanhoColunas = tamanhoColunas;
         ajustaTabela();
     }
 
-    /**
-     * Realiza o ajuste das colunas da tabela
-     */
-    private void ajustaTabela(){
+    public void ajustaTabela(){
         //Desabilita o auto redimensionamento da tabela
         this.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
@@ -107,38 +84,26 @@ public class Tabela extends JTable{
             this.setDefaultRenderer(this.getColumnClass(c), renderer);
         }
 
-        if (getTabelaAlinhamentosDados() != null){
-            renderer.setAlinhamentoDados(getTabelaAlinhamentosDados());
+        if (getAlinhamentoColunas() != null){
+            renderer.setAlinhamentoDados(getAlinhamentoColunas());
         }
 
-        if (getTabelaFormatosDados() != null){
-            renderer.setFormatoDados(getTabelaFormatosDados());
+        if (getFormatoDados() != null){
+            renderer.setFormatoDados(getFormatoDados());
         }
 
-        if (getTabelaTamanhosColuna() != null){
-            renderer.setTamanhoColuna(getTabelaTamanhosColuna());
+        if (getTamanhoColunas() != null){
+            renderer.setTamanhoColuna(getTamanhoColunas());
         }
 
     }
 
-    /**
-     * Recebe um array de objetos contendo os dados
-     * que preencherao a tabela
-     * @param dados - Object[][]
-     */
     public void setDados(Object[][] dados){
         DefaultTableModel modelo = (DefaultTableModel) this.getModel();
         modelo.setDataVector(dados, getColunasIdentificadores(modelo));
         this.setModel(modelo);
     }
     
-    /**
-     * Retorna um array de objetos a partir de
-     * um   modelo  de  tabela,  e  auxilia  o 
-     * preenchimento da tabela
-     * @param modelo - TableModel
-     * @return Object[][] 
-     */
     private Object[] getColunasIdentificadores(TableModel modelo){
         modelo = (DefaultTableModel) this.getModel();
         Object[] colunas = new Object[modelo.getColumnCount()];
@@ -148,9 +113,24 @@ public class Tabela extends JTable{
         return colunas;
     }
 
-    @Override
     public boolean isCellEditable(int row, int column) {
         return false;
+    }
+    
+    public void marcaLinhaVerde() {
+		renderer.addLinhaPositivada(this.getSelectedRow());
+    }
+    
+    public void desmarcaLinhaVerde(){
+		renderer.removeLinhaPositivada(this.getSelectedRow());
+    }
+    
+    public void marcaLinhaVermelha() {
+		renderer.addLinhaNegativada(this.getSelectedRow());
+    }
+    
+    public void desmarcaLinhaVermelha(){
+		renderer.removeLinhaNegativada(this.getSelectedRow());
     }
     
 }
