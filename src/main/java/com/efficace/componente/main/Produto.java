@@ -23,7 +23,6 @@ public class Produto implements Serializable {
 		this.valor = valor;
 	}
 	
-	@Override
 	public String toString() {
 		return "Produto [nome=" + nome + ", valor=" + valor + "]\n";
 	}

@@ -11,9 +11,6 @@ import javax.swing.text.Position;
 
 public class TableFindAction extends FindAction {
 
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 4776181185424239441L;
 
 	protected boolean changed(JComponent comp, String searchString, Position.Bias bias) {
