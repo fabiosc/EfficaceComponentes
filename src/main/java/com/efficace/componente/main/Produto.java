@@ -2,7 +2,7 @@ package com.efficace.componente.main;
 
 import java.io.Serializable;
 
-public class Produto /*extends AbstractModelObject*/ implements Serializable {
+public class Produto implements Serializable {
 	
 	private static final long serialVersionUID = 980849606788305501L;
 	
@@ -14,7 +14,6 @@ public class Produto /*extends AbstractModelObject*/ implements Serializable {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-//		firePropertyChange("nome", null, this.nome);
 	}
 	
 	public String getValor() {
@@ -22,7 +21,6 @@ public class Produto /*extends AbstractModelObject*/ implements Serializable {
 	}
 	public void setValor(String valor) {
 		this.valor = valor;
-//		firePropertyChange("valor", null, this.valor);
 	}
 	
 	@Override
