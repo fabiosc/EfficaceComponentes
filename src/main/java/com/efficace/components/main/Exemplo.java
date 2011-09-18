@@ -67,9 +67,11 @@ public class Exemplo extends JFrame {
 		JButton btnOk = new JButton("Ok");
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				modelo.addProduto(modelo.getProduto());
-				tabela.repaint();
-				incicializaCampos();
+				if (!(modelo.getProduto().getNome().equals("") && modelo.getProduto().getValor().equals(""))) {
+					modelo.addProduto(modelo.getProduto());
+					tabela.repaint();
+					incicializaCampos();
+				}
 			}
 		});
 		btnOk.setBounds(367, 229, 89, 23);
