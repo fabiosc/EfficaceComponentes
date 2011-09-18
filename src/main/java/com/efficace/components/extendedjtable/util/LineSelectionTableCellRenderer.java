@@ -2,7 +2,7 @@
  * Desenvolvido por Efficace Tecnologia
  * Brasil, 16/08/2011
  */
-package com.efficace.componente.tabela.util;
+package com.efficace.components.extendedjtable.util;
 
 import java.awt.Color;
 import java.awt.Component;

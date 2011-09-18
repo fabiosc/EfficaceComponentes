@@ -2,10 +2,11 @@
  * Desenvolvido por Efficace Tecnologia
  * Brasil, 16/08/2011
  */
-package com.efficace.componente.tabela;
+package com.efficace.components.extendedjtable;
 
-import com.efficace.componente.tabela.util.LineSelectionTableCellRenderer;
-import com.efficace.componente.tabela.util.TableFindAction;
+import com.efficace.components.extendedjtable.util.LineSelectionTableCellRenderer;
+import com.efficace.components.extendedjtable.util.TableFindAction;
+
 import java.text.Format;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;

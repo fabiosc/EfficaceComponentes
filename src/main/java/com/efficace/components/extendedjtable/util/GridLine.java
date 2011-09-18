@@ -1,4 +1,4 @@
-package com.efficace.componente.tabela.util;
+package com.efficace.components.extendedjtable.util;
 
 import java.awt.BorderLayout;
 import java.awt.Container;

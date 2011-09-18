@@ -1,4 +1,4 @@
-package com.efficace.componente.main;
+package com.efficace.components.main;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;

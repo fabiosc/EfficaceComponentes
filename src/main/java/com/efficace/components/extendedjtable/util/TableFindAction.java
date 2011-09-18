@@ -1,4 +1,4 @@
-package com.efficace.componente.tabela.util;
+package com.efficace.components.extendedjtable.util;
 
 import javax.swing.*;
 import javax.swing.text.Position;

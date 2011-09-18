@@ -1,4 +1,4 @@
-package com.efficace.componente.main;
+package com.efficace.components.main;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,8 @@ public class ProdutoModel extends AbstractModelObject {
 	}
 	
 	public void addProduto(Produto produto) {
-		produtos.add(produto);
+		Produto p = new Produto(produto.getNome(), produto.getValor());
+		produtos.add(p);
 	}
 	
 	public void removeProdutro(Produto produto) {

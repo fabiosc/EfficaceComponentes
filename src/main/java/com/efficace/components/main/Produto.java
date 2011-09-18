@@ -1,4 +1,4 @@
-package com.efficace.componente.main;
+package com.efficace.components.main;
 
 import java.io.Serializable;
 
@@ -8,6 +8,13 @@ public class Produto implements Serializable {
 	
 	private String nome;
 	private String valor;
+	
+	public Produto() {}
+	
+	public Produto(String nome, String valor) {
+		this.nome = nome;
+		this.valor = valor;
+	}
 	
 	public String getNome() {
 		return nome;
