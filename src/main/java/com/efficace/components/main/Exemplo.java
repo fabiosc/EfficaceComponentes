@@ -43,14 +43,14 @@ public class Exemplo extends JFrame {
 		lblProduto.setBounds(10, 11, 46, 14);
 		getContentPane().add(lblProduto);
 
-		campoAlfaNumerico = new ExtendedJTextField(10, "A");
-		campoAlfaNumerico.setBounds(10, 29, 303, 20);
+		campoAlfaNumerico = new ExtendedJTextField(45, "A");
+		campoAlfaNumerico.setBounds(10, 29, 335, 20);
 		getContentPane().add(campoAlfaNumerico);
 		campoAlfaNumerico.setColumns(10);
 		
 		campoValor = new ExtendedJTextField(10, "#,##");
 		campoValor.setHorizontalAlignment(SwingConstants.TRAILING);
-		campoValor.setBounds(323, 29, 101, 20);
+		campoValor.setBounds(355, 29, 101, 20);
 		getContentPane().add(campoValor);
 		campoValor.setColumns(10);
 		
@@ -61,7 +61,7 @@ public class Exemplo extends JFrame {
 		getContentPane().add(campoQuantidade);
 
 		JLabel lblValor = new JLabel("Valor");
-		lblValor.setBounds(323, 11, 101, 14);
+		lblValor.setBounds(355, 11, 101, 14);
 		getContentPane().add(lblValor);
 		
 		JButton btnOk = new JButton("Ok");
@@ -72,7 +72,7 @@ public class Exemplo extends JFrame {
 				incicializaCampos();
 			}
 		});
-		btnOk.setBounds(335, 228, 89, 23);
+		btnOk.setBounds(367, 229, 89, 23);
 		getContentPane().add(btnOk);
 		
 		JLabel lblQuantidade = new JLabel("Quantidade");
@@ -80,7 +80,7 @@ public class Exemplo extends JFrame {
 		getContentPane().add(lblQuantidade);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 111, 414, 106);
+		scrollPane.setBounds(10, 111, 446, 106);
 		getContentPane().add(scrollPane);
 		
 		tabela = new Tabela(alinhamentoColunas, tamanhoColunas);
@@ -94,7 +94,7 @@ public class Exemplo extends JFrame {
 	
 	public static void main(String[] args){
 		Exemplo e = new Exemplo();
-		e.setSize(450, 300);
+		e.setSize(480, 300);
 		e.setVisible(true);
 	}
 	
