@@ -143,8 +143,8 @@ public class Exemplo extends JFrame {
 	
 	private void incicializaCampos() {
 		campoAlfaNumerico.setText("");
-		campoValor.setText("");
-		campoQuantidade.setText("");
+		campoValor.setText(campoValor.getMask());
+		campoQuantidade.setText(campoQuantidade.getMask());
 	}
 	
 }

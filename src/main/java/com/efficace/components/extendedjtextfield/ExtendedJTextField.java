@@ -1,5 +1,8 @@
 package com.efficace.components.extendedjtextfield;
 
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+
 import javax.swing.JTextField;
 import javax.swing.text.AbstractDocument;
 import javax.swing.text.DocumentFilter;
@@ -45,8 +48,27 @@ public class ExtendedJTextField extends JTextField {
 		PlainDocumentFormat pdf = PlainDocumentFormatFactory.create(this); 
 		this.setDocument(pdf);
 		((AbstractDocument)this.getDocument()).setDocumentFilter(new DocumentFilter());
-//		this.setText(pdf.getMaskValue());
+		this.setText(pdf.getMaskValue());
+		this.mask = pdf.getMaskValue();
+		this.addFocusListener(new FocusListenerImplement(this));
 	}
+	
+	class FocusListenerImplement implements FocusListener{
 
+		private JTextField jTextField;
+
+	    public FocusListenerImplement(JTextField jTextField) {
+			super();
+			this.jTextField = jTextField;
+		}
+
+	    public void focusGained(FocusEvent e) {
+    		jTextField.setCaretPosition(jTextField.getText().length());
+	    }
+
+	    public void focusLost(FocusEvent e) {
+	    }
+
+	}	
 
 }
