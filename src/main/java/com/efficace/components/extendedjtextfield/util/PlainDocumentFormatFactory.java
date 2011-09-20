@@ -21,7 +21,9 @@ public class PlainDocumentFormatFactory {
 			return new UpperCaseFormat(maxLength);
 		} else if (mask.equals("a")) {
 			return new LowerCaseFormat(maxLength);
+		} else {
+			MaskFormat maskFormat = new MaskFormat(maxLength, mask.replaceAll("#", "0"));
+			return maskFormat;
 		}
-		return null;
 	}
 }

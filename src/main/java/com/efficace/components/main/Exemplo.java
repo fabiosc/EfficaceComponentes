@@ -28,6 +28,7 @@ public class Exemplo extends JFrame {
 	private ExtendedJTextField campoAlfaNumerico;
 	private ExtendedJTextField campoValor;
 	private ExtendedJTextField campoQuantidade;
+	private ExtendedJTextField campoOutro;
 	private Tabela tabela;
 	private ProdutoModel modelo = new ProdutoModel();
 	private Integer[] tamanhoColunas = new Integer[] { 300, 100 };
@@ -59,6 +60,12 @@ public class Exemplo extends JFrame {
 		campoQuantidade.setColumns(10);
 		campoQuantidade.setBounds(10, 80, 109, 20);
 		getContentPane().add(campoQuantidade);
+		
+		campoOutro = new ExtendedJTextField(8, "#####-###");
+		campoOutro.setColumns(10);
+		campoOutro.setBounds(129, 80, 77, 20);
+		getContentPane().add(campoOutro);
+		
 
 		JLabel lblValor = new JLabel("Valor");
 		lblValor.setBounds(355, 11, 101, 14);
@@ -67,7 +74,8 @@ public class Exemplo extends JFrame {
 		JButton btnOk = new JButton("Ok");
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (!(modelo.getProduto().getNome().equals("") && modelo.getProduto().getValor().equals(""))) {
+				if (!(modelo.getProduto().getNome().equals(campoAlfaNumerico.getMask()) && 
+						modelo.getProduto().getValor().equals(campoValor.getMask()))) {
 					modelo.addProduto(modelo.getProduto());
 					tabela.repaint();
 					incicializaCampos();
