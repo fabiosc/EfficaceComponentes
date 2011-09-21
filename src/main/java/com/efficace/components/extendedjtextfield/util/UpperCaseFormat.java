@@ -7,16 +7,16 @@ public class UpperCaseFormat extends PlainDocumentFormat {
 	public UpperCaseFormat(){}
 	
 	public UpperCaseFormat(int maxLength){
-		super.maxLength = maxLength;
+		super.setMaxLength(maxLength);
 	}
 
 	public String format(String string) {
-		if (byPass && (string == null || string.equals(""))) {
-			return this.maskValue;
+		if (super.isByPass() && (string == null || string.equals(""))) {
+			return super.getMaskValue();
 		} else {
-			byPass = false;
+			super.setByPass(false);
 		}
-		byPass = true;
+		super.setByPass(true);
 		if (isOverflow(string)) {
 			return string.substring(0, string.length() - 1).toUpperCase();
 		} else {

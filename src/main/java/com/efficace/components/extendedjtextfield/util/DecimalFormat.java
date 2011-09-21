@@ -12,8 +12,8 @@ public class DecimalFormat extends PlainDocumentFormat {
 	public DecimalFormat() {}
 	
 	public DecimalFormat(int maxLength, String maskValue) {
-		super.maxLength = maxLength;
-		super.maskValue = maskValue;
+		super.setMaxLength(maxLength);
+		super.setMaskValue(maskValue);
 	}
 	
 	public int getDecimalDigitNumber() {
@@ -41,10 +41,10 @@ public class DecimalFormat extends PlainDocumentFormat {
 	}
 
 	public String format(String string) {
-		if (byPass && (string == null || string.equals(""))) {
-			return this.maskValue;
+		if (super.isByPass() && (string == null || string.equals(""))) {
+			return super.getMaskValue();
 		} else {
-			byPass = false;
+			super.setByPass(false);
 		}
 		
 		String unformattedNumber = StringUtil.removeDefinedChar(string, "[1-9]", 4);
@@ -53,12 +53,12 @@ public class DecimalFormat extends PlainDocumentFormat {
 		if (isOverflow(unformattedNumber)) {
 			unformattedNumber = unformattedNumber.substring(0, unformattedNumber.length() - 1);
 			unformattedNumber = StringUtil.formatDecimalNumber(unformattedNumber, 
-					this.thousandsDigit, this.decimalDigit, super.maxLength, this.decimalDigitNumber);
+					this.thousandsDigit, this.decimalDigit, super.getMaxLength(), this.decimalDigitNumber);
 		} else {
 			unformattedNumber = StringUtil.formatDecimalNumber(unformattedNumber, 
-					this.thousandsDigit, this.decimalDigit, super.maxLength, this.decimalDigitNumber);
+					this.thousandsDigit, this.decimalDigit, super.getMaxLength(), this.decimalDigitNumber);
 		}
-		byPass = true;
+		super.setByPass(true);
 		return unformattedNumber;
 	}
 	

@@ -29,6 +29,9 @@ public class Exemplo extends JFrame {
 	private ExtendedJTextField campoValor;
 	private ExtendedJTextField campoQuantidade;
 	private ExtendedJTextField campoOutro;
+	private ExtendedJTextField campoCpf;	
+	private ExtendedJTextField campoCnpj;
+	private ExtendedJTextField campoData;
 	private Tabela tabela;
 	private ProdutoModel modelo = new ProdutoModel();
 	private Integer[] tamanhoColunas = new Integer[] { 300, 100 };
@@ -58,14 +61,28 @@ public class Exemplo extends JFrame {
 		campoQuantidade = new ExtendedJTextField(10, "#.0");
 		campoQuantidade.setHorizontalAlignment(SwingConstants.TRAILING);
 		campoQuantidade.setColumns(10);
-		campoQuantidade.setBounds(10, 80, 109, 20);
+		campoQuantidade.setBounds(10, 60, 109, 20);
 		getContentPane().add(campoQuantidade);
 		
 		campoOutro = new ExtendedJTextField(8, "#####-###");
 		campoOutro.setColumns(10);
-		campoOutro.setBounds(129, 80, 77, 20);
+		campoOutro.setBounds(129, 60, 77, 20);
 		getContentPane().add(campoOutro);
+
+		campoCpf = new ExtendedJTextField(11, "###.###.###-##");
+		campoCpf.setColumns(10);
+		campoCpf.setBounds(215, 60, 105, 20);
+		getContentPane().add(campoCpf);
+
+		campoCnpj = new ExtendedJTextField(11, "##.###.###/####-##");
+		campoCnpj.setColumns(10);
+		campoCnpj.setBounds(330, 60, 126, 20);
+		getContentPane().add(campoCnpj);
 		
+		campoData = new ExtendedJTextField(10, "##/##/####");
+		campoData.setColumns(10);
+		campoData.setBounds(10, 92, 109, 20);
+		getContentPane().add(campoData);
 
 		JLabel lblValor = new JLabel("Valor");
 		lblValor.setBounds(355, 11, 101, 14);
@@ -85,17 +102,14 @@ public class Exemplo extends JFrame {
 		btnOk.setBounds(367, 229, 89, 23);
 		getContentPane().add(btnOk);
 		
-		JLabel lblQuantidade = new JLabel("Quantidade");
-		lblQuantidade.setBounds(10, 60, 77, 14);
-		getContentPane().add(lblQuantidade);
-		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 111, 446, 106);
+		scrollPane.setBounds(10, 123, 446, 94);
 		getContentPane().add(scrollPane);
 		
 		tabela = new Tabela(alinhamentoColunas, tamanhoColunas);
 		
 		scrollPane.setViewportView(tabela);
+		
 		initDataBindings();
 		tabela.ajustaTabela();
 		incicializaCampos();
@@ -154,5 +168,4 @@ public class Exemplo extends JFrame {
 		campoValor.setText(campoValor.getMask());
 		campoQuantidade.setText(campoQuantidade.getMask());
 	}
-	
 }

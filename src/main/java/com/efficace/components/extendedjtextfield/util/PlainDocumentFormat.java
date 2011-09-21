@@ -7,11 +7,10 @@ import javax.swing.text.PlainDocument;
 public abstract class PlainDocumentFormat extends PlainDocument {
 
 	private static final long serialVersionUID = 4207731047062897064L;
-	protected int maxLength = 0;
-	protected String maskValue = "";
-	protected boolean byPass = false;
-	
-	
+	private int maxLength = 0;
+	private String maskValue = "";
+	private boolean byPass = false;
+
 	public int getMaxLength() {
 		return maxLength;
 	}
@@ -27,7 +26,15 @@ public abstract class PlainDocumentFormat extends PlainDocument {
 	public void setMaskValue(String maskValue) {
 		this.maskValue = maskValue;
 	}
-	
+
+	public boolean isByPass() {
+		return byPass;
+	}
+
+	public void setByPass(boolean byPass) {
+		this.byPass = byPass;
+	}
+
 	public void insertString(int offs, String str, AttributeSet a) throws BadLocationException {
 		super.insertString(offs, str, a);
 	}

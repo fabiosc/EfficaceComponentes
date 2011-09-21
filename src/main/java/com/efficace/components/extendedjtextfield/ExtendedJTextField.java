@@ -53,7 +53,7 @@ public class ExtendedJTextField extends JTextField {
 		this.addFocusListener(new FocusListenerImplement(this));
 	}
 	
-	class FocusListenerImplement implements FocusListener{
+	class FocusListenerImplement implements FocusListener {
 
 		private JTextField jTextField;
 
@@ -68,7 +68,7 @@ public class ExtendedJTextField extends JTextField {
 
 	    public void focusLost(FocusEvent e) {
 	    }
-
+	    
 	}	
-
+	
 }

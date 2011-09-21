@@ -8,30 +8,31 @@ public class MaskFormat extends PlainDocumentFormat {
 	
 	public MaskFormat() {}
 	
-	public MaskFormat(int maxLength, String maskValue) {
-		super.maxLength = maxLength;
-		super.maskValue = maskValue;
+	public MaskFormat(String maskValue) {
+		String auxMaxLength = StringUtil.removeAnyDefinedChar(maskValue, "[\\.,-/]?", "");
+		super.setMaxLength(auxMaxLength.length()); 
+		super.setMaskValue(maskValue);
 	}
 	
 
 	public String format(String string) {
 		
-		if (byPass && (string == null || string.equals(""))) {
-			return this.maskValue;
+		if (super.isByPass() && (string == null || string.equals(""))) {
+			return super.getMaskValue();
 		} else {
-			byPass = false;
+			super.setByPass(false);
 		}
 		
-		String unformattedNumber = StringUtil.removeDefinedChar(string, "[1-9]", 4);
-		unformattedNumber = StringUtil.removeAnyDefinedChar(unformattedNumber, "[^0-9][\\.,-/]?", "");
-		unformattedNumber = StringUtil.completeStringLeft(unformattedNumber, "0", this.maxLength);
+		String unformattedNumber = StringUtil.removeDefinedChar(string, "[0-9]", 4);
+		unformattedNumber = StringUtil.removeAnyDefinedChar(unformattedNumber, "[^0-9][\\.,-/_]?", "");
+		unformattedNumber = StringUtil.completeStringLeft(unformattedNumber, "_", super.getMaxLength());
 		if (isOverflow(unformattedNumber)) {
 			unformattedNumber = unformattedNumber.substring(0, unformattedNumber.length() - 1);
-			unformattedNumber = StringUtil.formatMask(unformattedNumber, this.maskValue);
+			unformattedNumber = StringUtil.formatMask(unformattedNumber, super.getMaskValue());
 		} else {
-			unformattedNumber = StringUtil.formatMask(unformattedNumber, this.maskValue);
+			unformattedNumber = StringUtil.formatMask(unformattedNumber, super.getMaskValue());
 		}
-		byPass = true;
+		super.setByPass(true);
 		return unformattedNumber;
 		
 	}

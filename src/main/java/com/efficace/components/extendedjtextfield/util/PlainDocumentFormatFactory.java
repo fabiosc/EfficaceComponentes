@@ -7,7 +7,8 @@ public class PlainDocumentFormatFactory {
 	public static PlainDocumentFormat create(ExtendedJTextField textField){
 		String mask = textField.getMask();
 		int maxLength = textField.getMaxLength();
-		if (mask.contains("#,#") || mask.contains("#.#")){
+		if (mask.contains("#,#") || mask.contains("#.#") &&
+				!(mask.contains("-") || mask.contains("/"))){
 			DecimalFormat decimalFormat = new DecimalFormat(maxLength, mask.replace("#", "0"));
 			decimalFormat.setDecimalDigit(mask.contains(",") ? "," : ".");
 			decimalFormat.setThousandsDigit(mask.contains(",") ? "." : ",");
@@ -22,7 +23,7 @@ public class PlainDocumentFormatFactory {
 		} else if (mask.equals("a")) {
 			return new LowerCaseFormat(maxLength);
 		} else {
-			MaskFormat maskFormat = new MaskFormat(maxLength, mask.replaceAll("#", "0"));
+			MaskFormat maskFormat = new MaskFormat(mask.replaceAll("#", "_"));
 			return maskFormat;
 		}
 	}

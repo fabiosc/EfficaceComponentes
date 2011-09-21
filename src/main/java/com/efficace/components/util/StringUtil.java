@@ -123,7 +123,7 @@ public class StringUtil {
 
 		for(int i = 0; i < formatedMask.length(); i++) {
 			String digit = formatedMask.substring(i, i + 1);
-			if (!Pattern.matches("[0-9]", digit)){
+			if (!Pattern.matches("[0-9_]", digit)){
 				digits.add(formatedMask.substring(lastIndexDigit, i));
 				separators.add(formatedMask.substring(i, i + 1));
 				lastIndexDigit = i + 1;
@@ -136,7 +136,7 @@ public class StringUtil {
 
 		for (int it = 0; it < digits.size(); it++) {
 			String s = digits.get(it);
-			regex.append("(\\d{").append(s.length()).append("})");
+			regex.append("(\\w{").append(s.length()).append("})");
 			if (separators.size() > it) {
 				mask.append("$").append(it+1).append(separators.get(it));
 			} else {

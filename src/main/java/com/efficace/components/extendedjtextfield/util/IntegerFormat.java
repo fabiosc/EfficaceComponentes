@@ -10,8 +10,8 @@ public class IntegerFormat extends PlainDocumentFormat {
 	public IntegerFormat() {}
 	
 	public IntegerFormat(int maxLength, String maskValue) {
-		super.maxLength = maxLength;
-		super.maskValue = maskValue;
+		super.setMaxLength(maxLength);
+		super.setMaskValue(maskValue);
 	}
 
 	public String getThousandsDigit() {
@@ -23,22 +23,22 @@ public class IntegerFormat extends PlainDocumentFormat {
 	}
 
 	public String format(String string) {
-		if (byPass && (string == null || string.equals(""))) {
-			return this.maskValue;
+		if (super.isByPass() && (string == null || string.equals(""))) {
+			return super.getMaskValue();
 		} else {
-			byPass = false;
+			super.setByPass(false);
 		}
 		
 		String unformattedNumber = StringUtil.removeDefinedChar(string, "[1-9]", 4);
 		unformattedNumber = StringUtil.removeAnyDefinedChar(unformattedNumber, "[^0-9][\\.,-/]?", "");
 		if (isOverflow(unformattedNumber)) {
 			unformattedNumber = unformattedNumber.substring(0, unformattedNumber.length() - 1);
-			unformattedNumber = StringUtil.formatIntegerNumber(unformattedNumber, this.thousandsDigit, super.maxLength );			
+			unformattedNumber = StringUtil.formatIntegerNumber(unformattedNumber, this.thousandsDigit, super.getMaxLength() );			
 		} else {
-			unformattedNumber = StringUtil.formatIntegerNumber(unformattedNumber, this.thousandsDigit, super.maxLength );
+			unformattedNumber = StringUtil.formatIntegerNumber(unformattedNumber, this.thousandsDigit, super.getMaxLength() );
 		}
 		
-		byPass = true;
+		super.setByPass(true);
 		return unformattedNumber;
 	}
 
